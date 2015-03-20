@@ -42,7 +42,7 @@ public class Limb {
                 case LimbType.Head:
                     // Instantiate a head. If there are special things about this limb we could add another if-then or switch
                     //  to determine what to do. i.e. (maybe we want to load a squid head, or custom head)???
-                    Object = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/defaultHead")) as GameObject;
+				Object = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/Character1")) as GameObject;
                     Object.transform.position = new Vector3( 0.0f, 0.0f, 0.0f );
                     break;
                 case LimbType.Arm:
