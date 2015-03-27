@@ -47,8 +47,7 @@ public class Limb {
                     break;
                 case LimbType.Arm:
                     // @TODO: add an arm prefab....
-                    //  copy the syntax above to make a new arm.
-                    break;
+				//
                 case LimbType.Leg:
                     // @TODO: add an arm prefab....
                     //  copy the syntax above to make a new leg.
@@ -56,7 +55,9 @@ public class Limb {
                 case LimbType.Torso:
                     // @TODO: add an arm prefab....
                     //  copy the syntax above to make a new torso.
-                    break;
+				Object = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/Character2")) as GameObject;
+				Object.transform.position = new Vector4( 5.0f, 5.0f, 5.0f );
+				break;
             }
             // set the type to the new type
             _type = type;
