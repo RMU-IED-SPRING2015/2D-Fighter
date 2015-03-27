@@ -120,12 +120,8 @@ public class Character : MonoBehaviour {
     /// </summary>
     private void stepForward()
     {
-		
-    }
-	public void eat()
-	{
-	}
 
+    }
 }
 
 
