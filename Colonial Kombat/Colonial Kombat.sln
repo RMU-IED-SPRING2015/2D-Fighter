@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 
 Project("{DF5CB7D8-4037-0E47-0D1B-419398FD4228}") = "Colonial Kombat", "Assembly-CSharp.csproj", "{BE7C8206-3451-5385-D035-9E6E9B28A508}"
 EndProject
+Project("{DF5CB7D8-4037-0E47-0D1B-419398FD4228}") = "Colonial Kombat", "Assembly-UnityScript-firstpass.unityproj", "{57830742-A0B6-C346-2E27-A445327CCDEB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,11 +15,15 @@ Global
 		{BE7C8206-3451-5385-D035-9E6E9B28A508}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE7C8206-3451-5385-D035-9E6E9B28A508}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE7C8206-3451-5385-D035-9E6E9B28A508}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57830742-A0B6-C346-2E27-A445327CCDEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57830742-A0B6-C346-2E27-A445327CCDEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57830742-A0B6-C346-2E27-A445327CCDEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57830742-A0B6-C346-2E27-A445327CCDEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-												GlobalSection(MonoDevelopProperties) = preSolution
+															GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

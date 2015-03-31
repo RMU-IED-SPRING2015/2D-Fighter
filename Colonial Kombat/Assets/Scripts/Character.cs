@@ -4,21 +4,23 @@ using System;
 
 public class Character : MonoBehaviour {
 
-    public Limb[] Limbs;
+    //public Limb[] Limbs;
     public string Name;
 
     private float _maximumHP;
     private float _currentHP;
 
+	private bool _grounded;
+
 	// Use this for initialization
 	void Start () {
-        Limbs = new Limb[Enum.GetValues(typeof(HumanoidLimbs)).Length];
+//        Limbs = new Limb[Enum.GetValues(typeof(HumanoidLimbs)).Length];
         setupLimbs();
 	}
 
     private void setupLimbs()
     {
-        for (int i = 0; i < Limbs.Length; i++)
+/*/        for (int i = 0; i < Limbs.Length; i++)
         {
             Limbs[i] = new Limb();
             Limbs[i].Name = ((HumanoidLimbs)i).ToString();
@@ -31,12 +33,13 @@ public class Character : MonoBehaviour {
             else if (Limbs[i].Name.ToLower().Contains("torso"))
                 Limbs[i].SetLimbType(LimbType.Torso);
         }
-    }
+		/*/
+	}
 
     // Update is called once per frame
     void Update()
     {
-	    
+		rigidbody2D.AddForce (-9.81f * Vector2.up);   
 	}
 
     public void Injure(float damage)
@@ -66,14 +69,18 @@ public class Character : MonoBehaviour {
     /// Moves a character to the location, and plays the walking animation.
     /// </summary>
     /// <param name="location"></param>
-    public void WalkTo(float location)
+    public void WalkTo(Vector2 location)
     {
-        // First update the position of the player.
-        rigidbody2D.MovePosition(new Vector2( location,transform.position.y ));
-        // Now update the animation of the player to make it appear to walk.
-
-
-    }
+		//float damp = 10.5f;
+		//Vector2 temp = new Vector2 (transform.position.x, transform.position.y);
+        
+		//rigidbody2D.AddForce( damp*(location -  temp) );
+ 
+		// First update the position of the player.
+		rigidbody2D.MovePosition( location );
+ 
+		// Now update the animation of the player to make it appear to walk.
+	}
 
     /// <summary>
     /// Make a character perform an attack.
@@ -93,12 +100,16 @@ public class Character : MonoBehaviour {
     public void Jump()
     {
         // Make the character jump.
-        
+
+
+
         // Make sure the character has a footing to jump from, and not allow an air jump.
-            // First update the position of the character.
+        if (_grounded) {
+			// First update the position of the character.
+			rigidbody2D.AddForce (5000.0f * Vector2.up);
 
-            // Then play the animation.
-
+			// Then play the animation.
+		}
 
     }
 
@@ -126,6 +137,30 @@ public class Character : MonoBehaviour {
 	{
 	}
 
+	/*.void OnTriggerEnter2D( Collider2D col )
+	{
+		Debug.Log ("Attacked");
+		GameObject sp = GameObject.Find ("Sparks");
+		sp.particleEmitter.emit = true;
+		sp.transform.position = col.collider2D;
+	}
+	void OnTriggerExit2D()
+	{
+		Debug.Log ("Attacked");
+		GameObject.Find ("Sparks").particleEmitter.emit = false;
+	}
+*/
+	void OnCollisionEnter2D( Collision2D col )
+	{
+		//Debug.Log ("Collision!!");
+		_grounded = true;
+
+	}
+
+	void OnCollisionExit2D( Collision2D col )
+	{
+		_grounded = false;
+	}
 }
 
 
