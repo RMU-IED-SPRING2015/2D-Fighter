@@ -1,43 +1,55 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CameraController : MonoBehaviour {
+public class CameraController : MonoBehaviour
+{
 
-	//public GameObject TrackPlayer;
+    //public GameObject TrackPlayer;
 
-	// Use this for initialization
-	void Start () {
-		//if (TrackPlayer == null)
-			//Debug.LogError ("You need to set the track player object in the Unity Editor.");
+    // Use this for initialization
+    void Start()
+    {
+        //if (TrackPlayer == null)
+        //Debug.LogError ("You need to set the track player object in the Unity Editor.");
 
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		//Vector.2 pos = TrackPlayer.transform.position;
-		float dist = 0.0f;
+    }
 
-		Vector2 difference = Vector2.zero; 
-	
+    // Update is called once per frame
+    void Update()
+    {
+        //Vector.2 pos = TrackPlayer.transform.position;
+        float dist = 0.0f;
 
-		Character[] chars = GameObject.FindObjectsOfType<Character>();
+        Vector3 difference = Vector3.zero;
+        Vector3 c = Vector3.zero;
 
-		foreach (Character c1 in chars)
-			foreach (Character c2 in chars)
-				if (!(c1 == c2)) {
-					difference = c1.GetComponentInParent<Transform> ().position
-								- c2.GetComponentInParent<Transform> ().position;
+        Character[] chars = GameObject.FindObjectsOfType<Character>();
 
-					dist = Mathf.Max (new float [] { dist,
-						difference.magnitude });
-				}
+        foreach (Character c1 in chars)
+            foreach (Character c2 in chars)
+                if (!(c1 == c2))
+                {
+                    difference = c1.GetComponentInParent<Transform>().position
+                                - c2.GetComponentInParent<Transform>().position;
 
-		dist = Mathf.Clamp(dist,6.0f,20.0f);
-		//Camera.main.orthographicSize = dist * .5f;
-		//Vector3 p = (difference / 2.0f);
-		//Vector3 delta = camera.ViewportToWorldPoint ();
-		//transform.position = delta;
-			//transform.position.Set ( pos.x, pos.y, Camera.main.transform.position.z );
-	}
-	
+                    c = c2.GetComponentInParent<Transform>().position;
+
+                    dist = Mathf.Max(new float[] { dist,
+                        difference.magnitude });
+                }
+
+
+
+        Vector3 p = (difference * 0.5f);
+
+        //Debug.Log(camera.orthographicSize);
+
+        //GameObject.Find("TEST").transform.position = ( c + p );
+        Camera.main.transform.position = c + p - Vector3.forward * 20.0f;
+
+        dist = Mathf.Clamp(dist, 10.0f, 2000.0f);
+        camera.orthographicSize = dist * .5f;
+
+    }
+
 }
