@@ -33,8 +33,7 @@ public class CameraController : MonoBehaviour {
 				}
 
 		dist = Mathf.Clamp(dist,6.0f,20.0f);
-		Camera.main.orthographicSize = dist * .5f;
-		transform.position = new Vector3( 
+		//Camera.main.orthographicSize = dist * .5f;
 		//Vector3 p = (difference / 2.0f);
 		//Vector3 delta = camera.ViewportToWorldPoint ();
 		//transform.position = delta;

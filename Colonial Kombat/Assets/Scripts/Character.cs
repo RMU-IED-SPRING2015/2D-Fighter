@@ -39,10 +39,7 @@ public class Character : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-		rigidbody2D.AddForce (-9.81f * Vector2.up);
-
-		Camera.main.camera.View
-		(GameObject.Find ("Sparks").transform.position )
+		rigidbody2D.AddForce (-9.81f * Vector2.up);   
 	}
 
     public void Injure(float damage)
@@ -156,13 +153,13 @@ public class Character : MonoBehaviour {
 	void OnCollisionEnter2D( Collision2D col )
 	{
 		//Debug.Log ("Collision!!");
-		//_grounded = true;
+		_grounded = true;
 
 	}
 
 	void OnCollisionExit2D( Collision2D col )
 	{
-		//_grounded = false;
+		_grounded = false;
 	}
 }
 
