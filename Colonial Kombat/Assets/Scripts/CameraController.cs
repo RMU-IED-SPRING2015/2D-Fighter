@@ -47,7 +47,7 @@ public class CameraController : MonoBehaviour
         //GameObject.Find("TEST").transform.position = ( c + p );
         Camera.main.transform.position = c + p - Vector3.forward * 20.0f;
 
-        dist = Mathf.Clamp(dist, 30.0f, 2000.0f);
+        dist = Mathf.Clamp(dist, 10.0f, 2000.0f);
         camera.orthographicSize = dist * .5f;
 
     }
