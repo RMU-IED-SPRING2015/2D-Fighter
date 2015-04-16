@@ -11,6 +11,7 @@ public class Player : MonoBehaviour {
 	public KeyCode Left = KeyCode.A;
 	public KeyCode Up = KeyCode.W;
 	public KeyCode Down = KeyCode.S;
+    public KeyCode Attack = KeyCode.LeftAlt;
 	public float Speed = 1.0f;
 
 

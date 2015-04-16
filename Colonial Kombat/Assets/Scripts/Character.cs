@@ -6,16 +6,19 @@ public class Character : MonoBehaviour {
 
     //public Limb[] Limbs;
     public string Name;
+    public float JumpPower;
 
-    private float _maximumHP;
-    private float _currentHP;
+    private GameObject _health;
 
 	private bool _grounded;
+    private bool _facingRight = true;
+    private float _jumpedAt = 0.0f;
 
 	// Use this for initialization
 	void Start () {
 //        Limbs = new Limb[Enum.GetValues(typeof(HumanoidLimbs)).Length];
         setupLimbs();
+        _jumpedAt = 0.0f;
 	}
 
     private void setupLimbs()
@@ -39,32 +42,9 @@ public class Character : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-		rigidbody2D.AddForce (-9.81f * Vector2.up);   
+		rigidbody2D.AddRelativeForce (-9.81f * Vector2.up);   
 	}
-
-    public void Injure(float damage)
-    {
-        _currentHP--;
-        if (_currentHP > _maximumHP)
-            _currentHP = _maximumHP;
-        if (_currentHP < 0)
-            _currentHP = 0;
-    }
-
-    public void Heal(float health)
-    {
-        Injure(-health);
-    }
-
-    /// <summary>
-    /// Health is a read-only attribute.
-    /// </summary>
-    public float Health
-    {
-        // Add any modifiers to the HP here to pass to external entities.
-        get { return _currentHP; }        
-    }
-
+    
     /// <summary>
     /// Moves a character to the location, and plays the walking animation.
     /// </summary>
@@ -73,7 +53,11 @@ public class Character : MonoBehaviour {
     {
 		//float damp = 10.5f;
 		//Vector2 temp = new Vector2 (transform.position.x, transform.position.y);
-        
+        if (location.x > transform.position.x && _facingRight == false)
+            Flip();
+        if (location.x < transform.position.x && _facingRight == true)
+            Flip();
+
 		//rigidbody2D.AddForce( damp*(location -  temp) );
  
 		// First update the position of the player.
@@ -100,14 +84,28 @@ public class Character : MonoBehaviour {
     public void Jump()
     {
         // Make the character jump.
+        //Debug.DrawLine(rigidbody2D.transform.position - 2.3f * rigidbody2D.transform.up, rigidbody2D.transform.position - 1.0f * rigidbody2D.transform.up);
+
+        RaycastHit2D rhit = Physics2D.Raycast(rigidbody2D.transform.position - 2.3f * rigidbody2D.transform.up, -rigidbody2D.transform.up, 0.05f);
+        //RaycastHit2D rhit = Physics2D.Linecast(rigidbody2D.transform.position - 2.3f * rigidbody2D.transform.up, rigidbody2D.transform.up * -1.0f);
+        if (rhit.collider != null)
+        {
+            Debug.Log(rhit.collider.name);
+            _grounded = true;
+        }
+        else
+            _grounded = false;
 
 
+        //Debug.Log(_jumpedAt);
+        //Debug.Log(Time.time);
 
         // Make sure the character has a footing to jump from, and not allow an air jump.
-        if (_grounded) {
+        if (_grounded )
+        {
 			// First update the position of the character.
-			rigidbody2D.AddForce (5000.0f * Vector2.up);
-
+            //rigidbody2D.AddForce( (JumpPower * rigidbody2D.transform.up) / Time.fixedDeltaTime);
+            rigidbody2D.AddRelativeForce((JumpPower * rigidbody2D.transform.up) / Time.fixedDeltaTime);
 			// Then play the animation.
 		}
 
@@ -124,6 +122,17 @@ public class Character : MonoBehaviour {
         // Calculate the next location to put the foot.
 
         return footing;
+    }
+
+    void Flip()
+    {
+        // Switch the way the player is labelled as facing.
+        _facingRight = !_facingRight;
+
+        // Multiply the player's x local scale by -1.
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
     }
 
     /// <summary>
@@ -153,13 +162,13 @@ public class Character : MonoBehaviour {
 	void OnCollisionEnter2D( Collision2D col )
 	{
 		//Debug.Log ("Collision!!");
-		_grounded = true;
+		//_grounded = true;
 
 	}
 
 	void OnCollisionExit2D( Collision2D col )
 	{
-		_grounded = false;
+		//_grounded = false;
 	}
 }
 
