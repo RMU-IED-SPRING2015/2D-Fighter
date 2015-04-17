@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\Character.cs" />
      <Compile Include="Assets\Scripts\Limb.cs" />
      <Compile Include="Assets\Scripts\Pause.cs" />
+     <Compile Include="Assets\Scripts\PlayButton.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
  <Reference Include="UnityEngine.UI">
@@ -58,6 +59,8 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{7AA1DBF3-9B17-81B5-8346-A4483648DF00}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-UnityScript-firstpass.unityproj">
       <Project>{57830742-A0B6-C346-2E27-A445327CCDEB}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>
   </ItemGroup>
