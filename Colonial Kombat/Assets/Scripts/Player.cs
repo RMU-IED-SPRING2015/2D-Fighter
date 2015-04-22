@@ -29,15 +29,31 @@ public class Player : MonoBehaviour {
 	void Update () {
 
 		if (_character != null) {
-			_character.GetComponent<Character>().WalkTo( 
-			                                            new Vector2( 
-			            _character.transform.position.x + (Input.GetKey( Right )?Speed:0.0f) - (Input.GetKey ( Left )?Speed:0.0f), 
-			            _character.transform.position.y ) );
 
-			if ( Input.GetKey(Up) )
-				_character.GetComponent<Character>().Jump();
+            switch( Type )
+            {
+            case PlayerType.Human:
+                {
+                    _character.GetComponent<Character>().WalkTo( new Vector2(
+                        _character.transform.position.x + (Input.GetKey(Right) ? Speed : 0.0f) - (Input.GetKey(Left) ? Speed : 0.0f),
+                        _character.transform.position.y));
 
+                    if (Input.GetKey(Attack))
+                        _character.GetComponentInChildren<WeaponController>().Attack();
 
+                    if (Input.GetKey(Up))
+                        _character.GetComponent<Character>().Jump();
+                    break;
+                }
+            case PlayerType.Computer:
+                {
+                    break;
+                }
+            case PlayerType.Net:
+                {
+                    break;
+                }
+            }
 
 		}
 	}

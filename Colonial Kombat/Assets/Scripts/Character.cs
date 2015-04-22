@@ -7,6 +7,7 @@ public class Character : MonoBehaviour {
     //public Limb[] Limbs;
     public string Name;
     public float JumpPower;
+    public GameObject SlapImpact;
 
     private GameObject _health;
 
@@ -17,13 +18,16 @@ public class Character : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 //        Limbs = new Limb[Enum.GetValues(typeof(HumanoidLimbs)).Length];
-        setupLimbs();
+//        setupLimbs();
         _jumpedAt = 0.0f;
+        _health = GetComponentInChildren<BaseStat>().gameObject;
 	}
 
+
+    /* NOT OBSOLETE implement if time.
     private void setupLimbs()
     {
-/*/        for (int i = 0; i < Limbs.Length; i++)
+        for (int i = 0; i < Limbs.Length; i++)
         {
             Limbs[i] = new Limb();
             Limbs[i].Name = ((HumanoidLimbs)i).ToString();
@@ -36,13 +40,15 @@ public class Character : MonoBehaviour {
             else if (Limbs[i].Name.ToLower().Contains("torso"))
                 Limbs[i].SetLimbType(LimbType.Torso);
         }
-		/*/
-	}
+		
+	}/*/
 
     // Update is called once per frame
     void Update()
     {
-		rigidbody2D.AddRelativeForce (-9.81f * Vector2.up);   
+		//rigidbody2D.AddRelativeForce (-9.81f * Vector2.up);
+        if (_health.GetComponent<BaseStat>().Status == BaseStatus.Deceased)
+            DestroyObject(this);
 	}
     
     /// <summary>
@@ -134,7 +140,7 @@ public class Character : MonoBehaviour {
         theScale.x *= -1;
         transform.localScale = theScale;
     }
-
+/*
     /// <summary>
     /// Causes the characters leg limbs to reach forward and try to find a supporting location to move there.
     /// </summary>
@@ -142,34 +148,24 @@ public class Character : MonoBehaviour {
     {
 		
     }
-	public void eat()
+ * 
+ * */
+
+
+    /// <summary>
+    /// Eat allows a character to eat someting. This does nothing right now.
+    /// </summary>
+	public void eat( GameObject obj )
 	{
+        /* Not implemented. No BaseObject class defined yet.
+        BaseObject objScript = obj.GetComponent<BaseObject>();
+        if (objScript != null)
+        {
+            obj.ConsumedBy(this);
+        }
+         * */
 	}
 
-	/*.void OnTriggerEnter2D( Collider2D col )
-	{
-		Debug.Log ("Attacked");
-		GameObject sp = GameObject.Find ("Sparks");
-		sp.particleEmitter.emit = true;
-		sp.transform.position = col.collider2D;
-	}
-	void OnTriggerExit2D()
-	{
-		Debug.Log ("Attacked");
-		GameObject.Find ("Sparks").particleEmitter.emit = false;
-	}
-*/
-	void OnCollisionEnter2D( Collision2D col )
-	{
-		//Debug.Log ("Collision!!");
-		//_grounded = true;
-
-	}
-
-	void OnCollisionExit2D( Collision2D col )
-	{
-		//_grounded = false;
-	}
 }
 
 

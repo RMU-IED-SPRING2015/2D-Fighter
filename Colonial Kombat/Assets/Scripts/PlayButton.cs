@@ -37,6 +37,7 @@ public class PlayButton : MonoBehaviour
 		if(GUI.Button (buttonRect, "",play))
 		{
 			Debug.Log ("BUTTON SUCCESSFUL");
+            Application.LoadLevel(1);
             
 		}
 

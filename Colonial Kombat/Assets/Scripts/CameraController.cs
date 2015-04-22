@@ -51,7 +51,10 @@ public class CameraController : MonoBehaviour
         Camera.main.transform.position = c + p - Vector3.forward * 20.0f;
 
         dist = Mathf.Clamp(dist, 30.0f, 2000.0f);
-        camera.orthographicSize = dist * .5f;
+        if (camera.isOrthoGraphic)
+            camera.orthographicSize = dist * .5f;
+        else
+            camera.fieldOfView = 60.0f + dist * 0.5f;
 
     }
 

@@ -55,7 +55,7 @@ TextureImporter:
         width: 62
         height: 62
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: RockTilesBackGround_1
       rect:
@@ -75,7 +75,7 @@ TextureImporter:
         width: 256
         height: 190
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: RockTilesBackGround_3
       rect:
@@ -85,7 +85,7 @@ TextureImporter:
         width: 62
         height: 190
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

@@ -46,6 +46,7 @@ public class BaseStat : MonoBehaviour {
 
     void OnGUI( )
     {
+        //Debug.Log("OnGUI");
         GUI.color = Color.green;
         GUI.Box(new Rect(transform.position.x - 20, transform.position.y - 20, 40, 10), Health.ToString() );
     }
