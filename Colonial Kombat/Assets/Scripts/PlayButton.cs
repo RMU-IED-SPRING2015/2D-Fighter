@@ -44,7 +44,7 @@ public class PlayButton : MonoBehaviour
 		Rect exitbuttonRect = new Rect
 		(
 			Screen.width / 2 - (exitbuttonWidth / 2),
-			Screen.height/ 2 + exitbuttonWidth /3 ,
+			Screen.height / 2 + exitbuttonWidth / 3 ,
 			exitbuttonWidth, exitbuttonHeight
 		);
 

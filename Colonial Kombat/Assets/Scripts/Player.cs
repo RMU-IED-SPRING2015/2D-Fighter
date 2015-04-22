@@ -22,7 +22,7 @@ public class Player : MonoBehaviour {
 		if (CharacterRef == null)
 			Debug.LogError ("You need to set the character in the Unity Editor.");
 		else
-			_character = Instantiate (CharacterRef,SpawnPoint.position,Quaternion.identity) as GameObject;
+			_character = Network.Instantiate (CharacterRef,SpawnPoint.position,Quaternion.identity,0) as GameObject;
 	}
 	
 	// Update is called once per frame
