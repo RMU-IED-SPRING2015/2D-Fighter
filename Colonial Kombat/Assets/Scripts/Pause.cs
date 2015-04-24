@@ -4,7 +4,7 @@ using System.Collections;
 public class Pause : MonoBehaviour
 {
     bool isPause = false;
-    Rect MainMenu = new Rect(Screen.width/2 - 200, Screen.height/2 - 200, 400, 400);
+    Rect MainMenu = new Rect(Screen.width/2 - 200, Screen.height/2 - 400, 400, 400);
     // Use this for initialization
 
 
@@ -27,7 +27,7 @@ public class Pause : MonoBehaviour
 
         if (isPause)
         {
-            GUI.Window(0, MainMenu, TheMainMenu, "Pause Menu");
+            GUILayout.Window(0, MainMenu, TheMainMenu, "Pause Menu");
             //Debug.Log ("On GUI");
         }
     }

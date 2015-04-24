@@ -36,7 +36,7 @@ public class WeaponController : MonoBehaviour {
                     if (ImpactPrefab == null)
                         break;
 
-
+                    
                     GameObject sp = Instantiate(ImpactPrefab, _firstContact, Quaternion.identity) as GameObject;
 
                     _isAttacking = false;

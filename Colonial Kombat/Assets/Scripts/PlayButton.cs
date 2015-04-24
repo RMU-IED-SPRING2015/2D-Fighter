@@ -25,7 +25,7 @@ public class PlayButton : MonoBehaviour
 
 		//Determine button's placement
 		//X = center of screen, y = center of screen
-		Rect buttonRect = new Rect
+		Rect playButtonRect = new Rect
 		(
 			Screen.width / 2 - (playbuttonWidth / 2),
 			Screen.height / 2 - (playbuttonHeight / 4),
@@ -34,14 +34,14 @@ public class PlayButton : MonoBehaviour
 		//Get rid of gray default background of Unity
 
 		//Draw button and load image from resources
-		if(GUI.Button (buttonRect, "",play))
+		if(GUI.Button (playButtonRect, "",play))
 		{
 			Debug.Log ("BUTTON SUCCESSFUL");
             Application.LoadLevel(1);
             
 		}
 
-		Rect exitbuttonRect = new Rect
+		Rect exitButtonRect = new Rect
 		(
 			Screen.width / 2 - (exitbuttonWidth / 2),
 			Screen.height / 2 + exitbuttonWidth / 3 ,
@@ -50,7 +50,7 @@ public class PlayButton : MonoBehaviour
 
 
 		//Draw button and load image from resources
-		if(GUI.Button (exitbuttonRect, "",exit))
+		if(GUI.Button (exitButtonRect, "",exit))
 		{
 			Debug.Log ("EXIT BUTTON SUCCESSFUL");
             Application.Quit(); 

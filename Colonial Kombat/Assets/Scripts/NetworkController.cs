@@ -26,7 +26,6 @@ public class NetworkController : MonoBehaviour {
     void OnConnectedToServer() 
     {
         _connected = true;
-        Application.LoadLevel(2);
     }
 
     void OnServerInitialized()
@@ -52,7 +51,7 @@ public class NetworkController : MonoBehaviour {
         {
             GUILayout.Label("Connections: " + Network.connections.Length.ToString());
 
-            if (GUILayout.Button("Play") && Network.connections.Length > 0) 
+            if (GUILayout.Button("Play")) 
             {
                 Application.LoadLevel(2);
             }

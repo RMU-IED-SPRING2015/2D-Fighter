@@ -11,7 +11,7 @@ public class Player : MonoBehaviour {
 	public KeyCode Left = KeyCode.A;
 	public KeyCode Up = KeyCode.W;
 	public KeyCode Down = KeyCode.S;
-    public KeyCode Attack = KeyCode.LeftAlt;
+    public KeyCode Attack = KeyCode.Space;
 	public float Speed = 1.0f;
 
 
@@ -19,10 +19,13 @@ public class Player : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		if (CharacterRef == null)
-			Debug.LogError ("You need to set the character in the Unity Editor.");
-		else
-			_character = Network.Instantiate (CharacterRef,SpawnPoint.position,Quaternion.identity,0) as GameObject;
+        if (CharacterRef == null)
+            Debug.LogError("You need to set the character in the Unity Editor.");
+        else
+        {
+            if (networkView.isMine)
+                Network.Instantiate(CharacterRef, SpawnPoint.position, Quaternion.identity, 0);
+        }
 	}
 	
 	// Update is called once per frame
