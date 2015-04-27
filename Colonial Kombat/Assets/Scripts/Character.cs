@@ -70,7 +70,7 @@ public class Character : MonoBehaviour {
 		rigidbody2D.MovePosition( location );
  
 		// Now update the animation of the player to make it appear to walk.
-	}
+	}   
 
     /// <summary>
     /// Make a character perform an attack.

@@ -19,14 +19,22 @@ public class Player : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        
+	}
+
+    [RPC]
+    public void SpawnCharacter()
+    {
         if (CharacterRef == null)
-            Debug.LogError("You need to set the character in the Unity Editor.");
+            Debug.LogError("Character Prefab Reference is not assigned.");
         else
         {
             if (networkView.isMine)
                 Network.Instantiate(CharacterRef, SpawnPoint.position, Quaternion.identity, 0);
+            else
+                networkView.RPC( "SpawnCharacter", RPCMode.All, null );
         }
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {

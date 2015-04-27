@@ -10,26 +10,11 @@ Platform assembly: E:\FILES\PROJECTS\UNITY3D\2D-Fighter\Colonial Kombat\CK_Data\
 Loading E:\FILES\PROJECTS\UNITY3D\2D-Fighter\Colonial Kombat\CK_Data\Managed\UnityEngine.dll into Unity Child Domain
 Platform assembly: E:\FILES\PROJECTS\UNITY3D\2D-Fighter\Colonial Kombat\CK_Data\Managed\Assembly-CSharp.dll (this message is harmless)
 Loading E:\FILES\PROJECTS\UNITY3D\2D-Fighter\Colonial Kombat\CK_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: E:\FILES\PROJECTS\UNITY3D\2D-Fighter\Colonial Kombat\CK_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading E:\FILES\PROJECTS\UNITY3D\2D-Fighter\Colonial Kombat\CK_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
 Platform assembly: E:\FILES\PROJECTS\UNITY3D\2D-Fighter\Colonial Kombat\CK_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading E:\FILES\PROJECTS\UNITY3D\2D-Fighter\Colonial Kombat\CK_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.046 seconds
+- Completed reload, in  0.053 seconds
 desktop: 1920x1080 60Hz; virtual: 3840x1080 at -1920,0
 <RI> Initializing input.
 <RI> Input initialized.
-Platform assembly: E:\FILES\PROJECTS\UNITY3D\2D-Fighter\Colonial Kombat\CK_Data\Managed\System.Core.dll (this message is harmless)
-BUTTON SUCCESSFUL
- 
-(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
-
-UnloadTime: 0.257969 ms
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 157.
-Total: 0.376920 ms (FindLiveObjects: 0.010581 ms CreateObjectMapping: 0.009486 ms MarkObjects: 0.098882 ms  DeleteObjects: 0.010216 ms)
-
-UnloadTime: 0.244833 ms
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 223.
-Total: 0.393339 ms (FindLiveObjects: 0.008757 ms CreateObjectMapping: 0.010216 ms MarkObjects: 0.122964 ms  DeleteObjects: 0.010581 ms)
-

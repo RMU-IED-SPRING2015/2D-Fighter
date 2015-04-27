@@ -4,7 +4,7 @@ using System.Collections;
 public class NetworkController : MonoBehaviour {
 
     public string IP_Address = "127.0.0.1";
-    public int PortNumber = 98979;
+    public int PortNumber = 48972;
 
     private bool _connected = false;
 
@@ -45,7 +45,7 @@ public class NetworkController : MonoBehaviour {
                 Network.Connect(IP_Address, PortNumber);
 
             if (GUILayout.Button("Host"))
-                Network.InitializeServer(1, PortNumber, true);
+                Network.InitializeServer( 32, PortNumber, !Network.HavePublicAddress() );
         }
         else
         {
